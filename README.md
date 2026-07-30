@@ -223,8 +223,8 @@ You can write your docs in jupyter notebooks & use doc-builder to: turn jupyter 
 In some situations, such as course & tutorials, it makes more sense to write in jupyter notebooks (& use doc-builder converter) rather than writing in mdx files directly.
 
 The process is:
-1. In your `build_main_documentation.yml` & `build_pr_documentation.yml` enable the flag [convert_notebooks: true](https://github.com/huggingface/doc-builder/blob/main/.github/workflows/build_main_documentation.yml#L46-L48). 
-2. After this flag is enabled, doc-builder will convert all .ipynb files in [path_to_docs](https://github.com/huggingface/doc-builder/blob/main/.github/workflows/build_main_documentation.yml#L19-L20) to mdx files.
+1. In your `build_main_documentation.yml` & `build_pr_documentation.yml` enable the flag [convert_notebooks: true](https://github.com/Unity-Legal-Affairs/doc-builder/blob/main/.github/workflows/build_main_documentation.yml#L46-L48). 
+2. After this flag is enabled, doc-builder will convert all .ipynb files in [path_to_docs](https://github.com/Unity-Legal-Affairs/doc-builder/blob/main/.github/workflows/build_main_documentation.yml#L19-L20) to mdx files.
 
 Moreover, you can locally convert .ipynb files into mdx files.
 ```bash
@@ -261,7 +261,7 @@ jobs:
       package: datasets # Replace this with your package name
 ```
 
-Note the use of special arguments like `pr_number` and `package` under the `with` field. You can find the various options by inspecting each of the `doc-builder` [workflow files](https://github.com/huggingface/doc-builder/tree/main/.github/workflows).
+Note the use of special arguments like `pr_number` and `package` under the `with` field. You can find the various options by inspecting each of the `doc-builder` [workflow files](https://github.com/Unity-Legal-Affairs/doc-builder/tree/main/.github/workflows).
 
 ### Enabling multilingual documentation
 
@@ -279,7 +279,7 @@ doc_folder
     ...
 ```
 
-Note that each language directory has its own table of contents file `_toctree.yml` and that all languages are arranged under a single `doc_folder` directory - see the [`course`](https://github.com/huggingface/course/tree/main/chapters) repo for an example. You can then build the individual language subsets as follows:
+Note that each language directory has its own table of contents file `_toctree.yml` and that all languages are arranged under a single `doc_folder` directory - see the [`course`](https://github.com/Unity-Educational-Formation/course/tree/main/chapters) repo for an example. You can then build the individual language subsets as follows:
 
 ```bash
 doc-builder build {package_name} {path_to_docs} --build_dir {build_dir} --language {lang_id}
@@ -299,7 +299,7 @@ package_reference/classes: package_reference/main_classes
 
 ## Fixing and testing doc-builder
 
-If you are working on a fix or an update of the doc-builder tool itself, you will eventually want to test it in the CI of another repository (transformers, diffusers, courses, etc.). To do so you should set the `doc_builder_revision` argument in your workflow file to point to your branch. Here is an example of what it would look like in the [`transformers.js` project](https://github.com/xenova/transformers.js/blob/main/.github/workflows/pr-documentation.yml):
+If you are working on a fix or an update of the doc-builder tool itself, you will eventually want to test it in the CI of another repository (transformers, diffusers, courses, etc.). To do so you should set the `doc_builder_revision` argument in your workflow file to point to your branch. Here is an example of what it would look like in the [`transformers.js` project](https://github.com/Unity-Educational-Formation/transformers.js/blob/main/.github/workflows/pr-documentation.yml):
 
 ```yml
 jobs:
@@ -450,7 +450,7 @@ Syntax:
 [`XXXClass.method`] or [`~XXXClass.method`] // for method
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/en/model_doc/sew-d.md?plain=1#L39) & [here](https://github.com/huggingface/transformers/blob/6f79d264422245d88c7a34032c1a8254a0c65752/examples/research_projects/performer/modeling_flax_performer.py#L48) (as used inside docstring).
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/en/model_doc/sew-d.md?plain=1#L39) & [here](https://github.com/Unity-Educational-Formation/transformers/blob/6f79d264422245d88c7a34032c1a8254a0c65752/examples/research_projects/performer/modeling_flax_performer.py#L48) (as used inside docstring).
 
 When mentioning a class, function or method, it is recommended to use the following syntax for internal links so that our tool
 automatically adds a link to its documentation: \[\`XXXClass\`\] or \[\`function\`\]. This requires the class or 
@@ -470,7 +470,7 @@ Syntax:
 [`XXXLibrary.XXXClass.method`] or [`~XXXLibrary.XXXClass.method`] // for method
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/0f0e1a2c2bff68541a5b9770d78e0fb6feb7de72/docs/source/en/accelerate.md?plain=1#L29) linking object from `accelerate` inside `transformers`.
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/0f0e1a2c2bff68541a5b9770d78e0fb6feb7de72/docs/source/en/accelerate.md?plain=1#L29) linking object from `accelerate` inside `transformers`.
 
 ### Tip
 
@@ -486,7 +486,7 @@ Syntax:
 > Second line
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/0f0e1a2c2bff68541a5b9770d78e0fb6feb7de72/docs/source/en/create_a_model.md#L282-L286)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/0f0e1a2c2bff68541a5b9770d78e0fb6feb7de72/docs/source/en/create_a_model.md#L282-L286)
 
 Legacy docs may still use the `<Tip>` component, but we recommend migrating to blockquotes when updating files.
 
@@ -498,7 +498,7 @@ Syntax:
 > [!WARNING]
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/de/autoclass_tutorial.md#L102-L108)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/de/autoclass_tutorial.md#L102-L108)
 
 ### Framework Content
 
@@ -521,7 +521,7 @@ Flax content goes here
 </frameworkcontent>
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/de/autoclass_tutorial.md#L84-L131)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/de/autoclass_tutorial.md#L84-L131)
 
 Note: all frameworks are optional (you can write a PyTorch-only block for instance) and the order does not matter.
 
@@ -543,7 +543,7 @@ Syntax:
 </hfoptions>
 ```
 
-Example: [here](https://github.com/huggingface/diffusers/blob/75ea54a1512ac443d517ab35cb9bf45f8d6f326e/docs/source/en/using-diffusers/kandinsky.md?plain=1#L30-L81)
+Example: [here](https://github.com/Unity-Billal-mesloub/diffusers/blob/75ea54a1512ac443d517ab35cb9bf45f8d6f326e/docs/source/en/using-diffusers/kandinsky.md?plain=1#L30-L81)
 
 Note: for multiple `<hfoptions id="some id">` in a same page, you may consider using same id so that when a user selects one option it affects all other hfoptions blocks. If you don't want this behaviour, use different ids.
 
@@ -557,7 +557,7 @@ Syntax:
 // the anchor link is: `my-awesome-section`
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/en/model_doc/bert.md#L132)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/en/model_doc/bert.md#L132)
 
 Moreover, there is a way to customize the anchor link.
 
@@ -567,7 +567,7 @@ Syntax:
 // the anchor link is: `some-section`
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/en/model_summary.md#L79)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/en/model_summary.md#L79)
 
 ### LaTeX
 
@@ -579,7 +579,7 @@ Syntax:
 $$Y = X * \textbf{dequantize}(W); \text{quantize}(W)$$
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/main/docs/source/en/model_doc/rwkv.md?plain=1#L107)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/main/docs/source/en/model_doc/rwkv.md?plain=1#L107)
 
 Latex inline mode. `some prose \\( ... \\) more prose`
 
@@ -589,7 +589,7 @@ Syntax:
 A paragraph about \\( Y = X * \textbf{dequantize}(W); \text{quantize}(W) \\) the equation.
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/main/docs/source/en/model_doc/rwkv.md?plain=1#L93)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/main/docs/source/en/model_doc/rwkv.md?plain=1#L93)
 
 ### Code Blocks
 
@@ -600,7 +600,7 @@ Syntax:
 <!-- WRAP CODE BLOCKS -->
 ```
 
-Example: [here](https://github.com/huggingface/text-generation-inference/blob/724199aaf172590c3658018c0e6bc6152cda4c2f/docs/source/basic_tutorials/launcher.md?plain=1#L3)
+Example: [here](https://github.com/Unity-Billal-mesloub/text-generation-inference/blob/724199aaf172590c3658018c0e6bc6152cda4c2f/docs/source/basic_tutorials/launcher.md?plain=1#L3)
 
 ### Stretch Tables
 
@@ -615,7 +615,7 @@ This will make all tables in that page expand to 100% width of the content conta
 
 ### Inference Snippet
 
-The `InferenceSnippet` component is used to render an interactive interface for AI model inference. It uses [huggingface/huggingface.js](https://github.com/huggingface/huggingface.js) under the hood to get the snippets.
+The `InferenceSnippet` component is used to render an interactive interface for AI model inference. It uses [huggingface/huggingface.js](https://github.com/Unity-Billal-mesloub/huggingface.js) under the hood to get the snippets.
 
 #### Props
 
@@ -688,7 +688,7 @@ Syntax:
 [[autodoc]] SomeObject
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/en/model_doc/bert.md?plain=1#L142)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/en/model_doc/bert.md?plain=1#L142)
 
 If the object is a class, this will include every public method of it that is documented. If for some reason you wish for a method
 not to be displayed in the documentation, you can do so by specifying which methods should be in the docs, here is an example:
@@ -718,7 +718,7 @@ Syntax:
     - __call__
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/en/model_doc/bert.md?plain=1#L258-L259)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/eb849f6604c7dcc0e96d68f4851e52e253b9f0e5/docs/source/en/model_doc/bert.md?plain=1#L258-L259)
 
 ### Code Blocks from file references
 
@@ -744,7 +744,7 @@ Syntax:
 
 For a class or function description string, use markdown with [all the custom syntax of doc-builder](#writing-documentation-for-hugging-face-libraries).
 
-Example: [here](https://github.com/huggingface/transformers/blob/910faa3e1f1c566b23a0318f78f5caf5bda8d3b2/examples/flax/language-modeling/run_t5_mlm_flax.py#L257-L267)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/910faa3e1f1c566b23a0318f78f5caf5bda8d3b2/examples/flax/language-modeling/run_t5_mlm_flax.py#L257-L267)
 
 ### Arguments
 
@@ -759,7 +759,7 @@ Syntax:
         n_layers (`int`): The number of layers of the model.
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/6f79d264422245d88c7a34032c1a8254a0c65752/src/transformers/models/bert/tokenization_bert_fast.py#L168-L198)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/6f79d264422245d88c7a34032c1a8254a0c65752/src/transformers/models/bert/tokenization_bert_fast.py#L168-L198)
 
 If the description is too long to fit in one line, another indentation is necessary before writing the description
 after the argument.
@@ -777,9 +777,9 @@ Syntax:
             [What are input IDs?](../glossary#input-ids)
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/6f79d264422245d88c7a34032c1a8254a0c65752/src/transformers/models/bert/tokenization_bert_fast.py#L173-L175)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/6f79d264422245d88c7a34032c1a8254a0c65752/src/transformers/models/bert/tokenization_bert_fast.py#L173-L175)
 
-You can check the full example it comes from [here](https://github.com/huggingface/transformers/blob/v4.17.0/src/transformers/models/bert/modeling_bert.py#L794-L841)
+You can check the full example it comes from [here](https://github.com/Unity-Educational-Formation/transformers/blob/v4.17.0/src/transformers/models/bert/modeling_bert.py#L794-L841)
 
 ### Attributes
 
@@ -821,7 +821,7 @@ Syntax:
             This argument is used to ...
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/6f79d264422245d88c7a34032c1a8254a0c65752/src/transformers/models/bert/tokenization_bert_fast.py#L176)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/6f79d264422245d88c7a34032c1a8254a0c65752/src/transformers/models/bert/tokenization_bert_fast.py#L176)
 
 Note that we always omit the "defaults to \`None\`" when None is the default for any argument. Also note that even
 if the first line describing your argument type and its default gets long, you can't break it on several lines. You can
@@ -854,7 +854,7 @@ Syntax:
         `List[int]`: A list of integers in the range [0, 1] --- 1 for a special token, 0 for a sequence token.
 ```
 
-Example: [here](https://github.com/huggingface/transformers/blob/910faa3e1f1c566b23a0318f78f5caf5bda8d3b2/examples/flax/language-modeling/run_t5_mlm_flax.py#L273-L275)
+Example: [here](https://github.com/Unity-Educational-Formation/transformers/blob/910faa3e1f1c566b23a0318f78f5caf5bda8d3b2/examples/flax/language-modeling/run_t5_mlm_flax.py#L273-L275)
 
 Here's an example for tuple return, comprising several objects:
 
@@ -884,7 +884,7 @@ Yields:
         File object is opened in binary mode.
 ```
 
-Example: [here](https://github.com/huggingface/datasets/blob/f56fd9d6c877ffa6fb44fb832c13b61227c9cc5b/src/datasets/download/download_manager.py#L459-L462C17)
+Example: [here](https://github.com/Unity-Billal-mesloub/datasets/blob/f56fd9d6c877ffa6fb44fb832c13b61227c9cc5b/src/datasets/download/download_manager.py#L459-L462C17)
 
 ### Raises
 
@@ -939,11 +939,11 @@ Syntax:
             </Deprecated>
 ```
 
-Example: [here](https://github.com/huggingface/datasets/blob/a1e1867e932f14233244fb25713f3c94c46ff50a/src/datasets/combine.py#L53)
+Example: [here](https://github.com/Unity-Billal-mesloub/datasets/blob/a1e1867e932f14233244fb25713f3c94c46ff50a/src/datasets/combine.py#L53)
 
 ## Developing svelte locally
 
-We use svelte components for doc UI ([Tip component](https://github.com/huggingface/doc-builder/blob/890df105f4173fb8dc299ad6ba3e4db378d2e53d/kit/src/lib/Tip.svelte), [Docstring component](https://github.com/huggingface/doc-builder/blob/a9598feb5a681a3817e58ef8d792349e85a30d1e/kit/src/lib/Docstring.svelte), etc.).
+We use svelte components for doc UI ([Tip component](https://github.com/Unity-Legal-Affairs/doc-builder/blob/890df105f4173fb8dc299ad6ba3e4db378d2e53d/kit/src/lib/Tip.svelte), [Docstring component](https://github.com/huggingface/doc-builder/blob/a9598feb5a681a3817e58ef8d792349e85a30d1e/kit/src/lib/Docstring.svelte), etc.).
 
 Follow these steps to develop svelte locally:
 1. Create this file if it doesn't already exist: `doc-builder/kit/src/routes/_toctree.yml`. Contents should be:
